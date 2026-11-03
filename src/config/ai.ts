@@ -1,3 +1,4 @@
+
 import OpenAI from "openai";
 import "dotenv/config";
 
@@ -7,6 +8,10 @@ if (!process.env.OPENROUTER_API_KEY) {
 
 if (!process.env.OPENROUTER_MODEL) {
   throw new Error("OPENROUTER_MODEL is missing");
+}
+
+if (!process.env.OPENROUTER_VISION_MODEL) {
+  throw new Error("OPENROUTER_VISION_MODEL is missing");
 }
 
 export const ai = new OpenAI({
@@ -21,3 +26,5 @@ export const ai = new OpenAI({
 });
 
 export const AI_MODEL = process.env.OPENROUTER_MODEL;
+
+export const VISION_MODEL = process.env.OPENROUTER_VISION_MODEL;

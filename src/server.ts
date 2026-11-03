@@ -1,7 +1,8 @@
 import express from "express";
 import cors from "cors";
 import "dotenv/config";
-
+import documentRoutes from "./routes/document.routes.js";
+import imageRoutes from "./routes/image.routes.js";
 import chatRoutes from "./routes/chat.routes";
 
 const app = express();
@@ -14,7 +15,8 @@ app.use(cors({
 }));
 
 app.use(express.json({ limit: "1mb" }));
-
+app.use("/api/documents", documentRoutes);
+app.use("/api/images", imageRoutes);
 // Health check
 app.get("/health", (_req, res) => {
   res.json({

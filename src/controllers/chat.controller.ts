@@ -48,7 +48,7 @@ export const chatController = async (
     const completion = await ai.chat.completions.create({
       model: AI_MODEL,
       messages ,
-      stream: true
+      stream: false
     });
 
     const reply =
